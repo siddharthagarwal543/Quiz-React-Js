@@ -1,0 +1,222 @@
+
+/* =============================== Homepage button ========================  */
+.btn-home {
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.7em 2em;
+  border: 3px solid #FF0072;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: #FF0072;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.btn-home:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #FF0072;
+  z-index: -1;
+}
+
+.btn-home:hover, button:focus {
+  color: white;
+}
+
+.btn-home:hover:before, button:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.btn-home:active {
+  transform: scale(0.9);
+}
+
+/* ================ Homepage ============================== */
+.home-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  color: #FF0072;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+}
+
+/* ======================= Question form ========================= */
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(24,0,36);
+background: linear-gradient(164deg, rgba(24,0,36,1) 0%, rgba(255,0,114,1) 87%, rgba(140,0,255,1) 100%);
+}
+
+
+.wrapper{
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+}
+
+.wrapper .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.wrapper .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 40px;
+  background: linear-gradient(135deg, #71B7E6, #9B59B6);
+}
+.wrapper form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+}
+.user-details .input-box .details{
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all .3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #9B59B6;
+}
+
+form .gender-details .gender-title{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.gender-details .category{
+  display: flex;
+  width: 80%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+.gender-details .category label{
+  display: flex;
+  align-items: center;
+}
+.gender-details .category .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #D9D9D9;
+  border: 5px solid transparent;
+}
+
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
+  border-color: #D9D9D9;
+  background: #9B59B6;
+}
+
+#grad-dot-1:checked ~ .category label .one,
+#grad-dot-2:checked ~ .category label .two{
+  border-color: #D9D9D9;
+  background: #9B59B6;
+}
+
+#time-dot-1:checked ~ .category label .one,
+#time-dot-2:checked ~ .category label .two,
+#time-dot-3:checked ~ .category label .three{
+  border-color: #D9D9D9;
+  background: #9B59B6;
+}
+
+
+form input[type="radio"]{
+  display: none;
+}
+
+form .button{
+  height: 45px;
+  margin: 45px 0;
+}
+form .button input{
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #71B7E6, #9B59B6);
+}
+form .button input:hover{
+  background: linear-gradient(-135deg, #71B7E6, #9B59B6);
+}
+
+/* Media Query */
+@media (max-width: 584px) {
+  .wrapper{
+      max-width: 100%;
+  }
+  form .user-details .input-box{
+      margin-bottom: 15px;
+      width: 100%;
+  }
+  .gender-details .category{
+      width: 100%;
+  }
+  .wrapper form .user-details{
+      max-height: 300px;
+      overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+      width: 0;
+  }
+}
