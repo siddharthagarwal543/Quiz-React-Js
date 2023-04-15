@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Button,Table} from 'react-bootstrap';
 import Questionservices from '../Firebase/question-services';
-import Score from './Score'
+
+import { Link } from 'react-router-dom';
+import Button_Component from './Button_Component';
+import Display_Score from './Display_Score';
 
     
 
@@ -55,13 +58,14 @@ const handleOnChange = (e,que)=> {
   
     console.log(score);
 }
-<Score score={score}/>
+const [state, setState] = useState('start')
+
   return (
 
-    <div>
-        {
-        
-            Questions.map((ques) =>{
+    <>
+       <div>
+       {
+        Questions.map((ques) =>{
                 return(
                     <div key={ques.id}>
                         <p>{ques.question}</p>
@@ -78,11 +82,16 @@ const handleOnChange = (e,que)=> {
                 )
                 
             })
-        }
-        <button id="formSubmit" type="submit">Submit</button>
+       }
+        {state === 'start' && (
+        <Button_Component score={score} addTrip={() => setState('add-trip') } />
+      )}
+
+      {state === 'add-trip' && <Display_Score score={score}/>}
 
     </div>
-
+ 
+    </>
 
   )
 }

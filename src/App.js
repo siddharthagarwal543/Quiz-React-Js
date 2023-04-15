@@ -4,7 +4,7 @@ import NewQuiz from './Components/Questions/NewQuiz'
 import UpdateQuestion from './Components/Firebase/updateQuestion'
 import Quizpage from './Components/Quizpage/Quizpage'
 import './App.css'
-import Score from './Components/Quizpage/Score'
+import Score from './Components/Quizpage/Display_Score'
 
 const App = () => {
   return (
@@ -12,7 +12,6 @@ const App = () => {
       {/* <NewQuiz/> */}
       
      <Quizpage/>
-     <Score/>
     </div>
   )
 }
