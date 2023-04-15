@@ -1,5 +1,6 @@
 
 /* =============================== Homepage button ========================  */
+
 .btn-home {
   font-size: 18px;
   letter-spacing: 2px;
@@ -46,14 +47,57 @@
   transform: scale(0.9);
 }
 
+.button{
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #71B7E6, #9B59B6);
+  margin-bottom: 10px;
+}
+/*================= Score Page ============================ */
+.score-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  background: rgb(24,0,36);
+background: linear-gradient(164deg, rgba(24,0,36,1) 0%, rgba(255,0,114,1) 87%, rgba(140,0,255,1) 100%);
+}
+/*================= Quiz Page ============================ */
+.quiz-container{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  min-height: 100vh;
+  color: #fff;
+  background: rgb(24,0,36);
+background: linear-gradient(164deg, rgba(24,0,36,1) 0%, rgba(255,0,114,1) 87%, rgba(140,0,255,1) 100%);
+}
+.quiz-container h1{
+  text-align: center;
+}
+.quiz-container h3{
+  text-align: center;
+}
 /* ================ Homepage ============================== */
 .home-container{
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  background: rgb(24,0,36);
+background: linear-gradient(164deg, rgba(24,0,36,1) 0%, rgba(255,0,114,1) 87%, rgba(140,0,255,1) 100%);
 }
-
 .title{
   color: #FF0072;
   font-family: Verdana, Geneva, Tahoma, sans-serif;

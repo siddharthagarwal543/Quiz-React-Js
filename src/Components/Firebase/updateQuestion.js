@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Navbar, Row, Col } from "react-bootstrap";
 // import BooksList from "./components/BooksList";
-import "./updateQuestion.css";
+// import "./UpdateQuestion.css";
 import AddQuestion from "./AddQuestion"
 import Questionlist from "./Questionlist"
 
@@ -15,6 +15,7 @@ function App() {
 
   return (
     <>
+      <div className="home-container">
       <Navbar bg="dark" variant="dark" className="header">
         <Container>
           <Navbar.Brand href="#home">Add , Remove or Update Questions</Navbar.Brand>
@@ -37,6 +38,7 @@ function App() {
           </Col>
         </Row>
       </Container>
+      </div>
     </>
   );
 }

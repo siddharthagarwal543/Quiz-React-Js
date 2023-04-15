@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react'
-export const quiz_context = createContext();
+import Quizpage from '../Quizpage/Quizpage';
+const quiz_context = createContext();
 const NewQuiz = () => {
 const [records,setRecords]=useState([]);
 const [quizDetails,setQuizDetails]=useState({
@@ -24,7 +25,7 @@ const handleSubmit=(e)=>{
 }
   return (
   <>
-    <quiz_context.Provider value={[quizDetails]}>quizDetails</quiz_context.Provider>
+    {/* <quiz_context.Provider value="check"><Quizpage/></quiz_context.Provider> */}
     <div className='form-container'>
           <div class="wrapper">
     <div class="title">New Quiz</div>
@@ -116,3 +117,4 @@ const handleSubmit=(e)=>{
 }
 
 export default NewQuiz
+export {quiz_context};

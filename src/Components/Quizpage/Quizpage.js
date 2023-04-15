@@ -53,24 +53,30 @@ const handleOnChange = (e,que)=> {
   
     // console.log(score);
 }
-const [state, setState] = useState('start')
-    const [quizDetails]=quiz_context();
-    console.log(quizDetails)
+
   return (
 
     <>
-       
-       <div>
+       {/* <quiz_context.Consumer>
+        {(title)=>{
+            return <h1>{title}</h1>
+        }
+        }
+       </quiz_context.Consumer> */}
+      
+       <div className='quiz-container'>
+       <h1>2ECDE60</h1>
+       <h3>Embedded Systems class test</h3>
        {
         Questions.map((ques) =>{
                 return(
                     <div key={ques.id}>
                         <p>{ques.question}</p>
-                        <br/><input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.opta}/><label>{ques.opta}</label>
-                        <br/><input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.optb}/><label>{ques.optb}</label>
+                        <input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.opta}/><label>{ques.opta}</label>
+                       <br/><input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.optb}/><label>{ques.optb}</label>
                         <br/><input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.optc}/><label>{ques.optc}</label>
                         <br/><input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.optd}/><label>{ques.optd}</label>
-                        <br/><br/>
+                        <br/><br/><br/>
                     </div>
                 )
                 

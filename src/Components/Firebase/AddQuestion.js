@@ -77,7 +77,7 @@ const [correctans,setCorrectans]=useState("");
   }, [id]);
   return (
     <>
-      <div className="p-4 box">
+      <div className="p-4 box ">
         {message?.msg && (
           <Alert
             variant={message?.error ? "danger" : "success"}
