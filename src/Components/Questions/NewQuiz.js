@@ -1,36 +1,54 @@
-import React, { useState } from 'react'
-
+import React, { createContext, useState } from 'react'
+export const quiz_context = createContext();
 const NewQuiz = () => {
 const [records,setRecords]=useState([]);
 const [quizDetails,setQuizDetails]=useState({
-    title:"",
-    quizName:"",
+    name:"",
     description:"",
     gradingSystem:"",
-    time_limit:""
+    time_limit:0
 });
-
 const handleChange=(e)=>{
-const name=e.target.description;
+const name=e.target.name;
 const value=e.target.value;
-console.log(name,value);
+// console.log(name,value);
 setQuizDetails({...quizDetails,[name]:value})
 }
 
 const handleSubmit=(e)=>{
     e.preventDefault();
     const newRecord={...quizDetails,id : new Date().getTime.toString()}
-    console.log(records);
+    // console.log(records);
     setRecords([...records,newRecord]);
-    console.log(records);
+    // console.log(records);
 }
   return (
-  <div className='form-container'>
+  <>
+    <quiz_context.Provider value={[quizDetails]}>quizDetails</quiz_context.Provider>
+    <div className='form-container'>
           <div class="wrapper">
     <div class="title">New Quiz</div>
     <br/>
     <form action="#">
-    <div class="gender-details">
+    <div class="user-details">
+        <div class="input-box">
+                <span class="details">Quiz name</span>
+                <input name="name" type="text" value={quizDetails.name} placeholder="Enter  quiz name" onChange={handleChange} required/>
+            </div>
+            <div class="input-box">
+                <span class="details">Description</span>
+                <input name="description" type="text" value={quizDetails.description} placeholder="Enter Course Code" onChange={handleChange} required/>
+            </div>
+            <div class="input-box">
+                <span class="details">Grading Syystem</span>
+                <input name="gradingSystem" type="text" value={quizDetails.gradingSystem} placeholder="Percentage/Letter" onChange={handleChange} required/>
+            </div>
+            <div class="input-box">
+                <span class="details">Time Limit(In minutes)</span>
+                <input name="time_limit" type="text" value={quizDetails.time_limit} placeholder="1/3/5" onChange={handleChange} required/>
+            </div>
+            </div>
+    {/* <div class="gender-details">
             <input type="radio" name="gender" id="dot-1"/>
             <input type="radio" name="gender" id="dot-2"/>
             <input type="radio" name="gender" id="dot-3"/>
@@ -49,15 +67,8 @@ const handleSubmit=(e)=>{
                     <span class="gender">2EC603</span>
                 </label>
             </div>        
-        </div>
-        <div class="user-details">
-            <div class="input-box">
-                <span class="details">Description</span>
-                <input name="description" type="text" value={quizDetails.description} placeholder="Enter Course Code" onChange={handleChange} required/>
-            </div>
-            </div>
-
-        <div class="gender-details">
+        </div> */}
+        {/* <div class="gender-details">
             <input type="radio" name="gender" id="grad-dot-1"/>
             <input type="radio" name="gender" id="grad-dot-2"/>
             <input type="radio" name="gender" id="grad-dot-3"/>
@@ -92,7 +103,7 @@ const handleSubmit=(e)=>{
                     <span class="gender">5 minutes</span>
                 </label>
             </div>        
-        </div>
+        </div> */}
         <div class="button">
             <input type="submit" onClick={handleSubmit} value="Create Quiz"/>
         </div>
@@ -100,6 +111,7 @@ const handleSubmit=(e)=>{
 </div>
 
   </div>
+  </>
   )
 }
 

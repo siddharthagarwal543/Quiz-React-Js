@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button,Table} from 'react-bootstrap';
 import Questionservices from '../Firebase/question-services';
-
 import { Link, useNavigate } from 'react-router-dom';
 import Button_Component from './Button_Component';
 import Display_Score from './Display_Score';
+import { quiz_context } from '../Questions/NewQuiz';
 
     
 
@@ -54,10 +54,12 @@ const handleOnChange = (e,que)=> {
     // console.log(score);
 }
 const [state, setState] = useState('start')
-
+    const [quizDetails]=quiz_context();
+    console.log(quizDetails)
   return (
 
     <>
+       
        <div>
        {
         Questions.map((ques) =>{
