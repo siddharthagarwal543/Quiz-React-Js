@@ -1,9 +1,11 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
-function Display_Score({score}) {
-  //  var {total}=score
+function Display_Score() {
+  const location = useLocation();
+  // console.log(location.state.data.total)
   return (
-    <div>Your total Score is: {score}</div>
+    <div>Your total Score is:{location.state.data.total} </div>
   )
 }
 

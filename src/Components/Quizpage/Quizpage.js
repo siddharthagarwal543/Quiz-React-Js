@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button,Table} from 'react-bootstrap';
 import Questionservices from '../Firebase/question-services';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button_Component from './Button_Component';
 import Display_Score from './Display_Score';
 
@@ -13,10 +13,10 @@ const Quizpage = () => {
 
      var [score,setscore] = useState(0);
      var [ansData,setAnsData] = useState({});
-    //  var [totalscore,settotalscore] = useState(0);
-    const handleSubmit=(e)=>{
-        console.log(e)
-        
+    const navigate=useNavigate();
+    const handleSubmit=()=>{
+       let data={total:score}
+        navigate("\DisplayScore",{state:{data}})
     }
 
     const[Questions,setQuestions]=useState([]);
@@ -27,15 +27,10 @@ const Quizpage = () => {
 
     const getQuestions=async()=>{
         const data=await Questionservices.getAllQuestions();
-        console.log(data.docs);
+        // console.log(data.docs);
         setQuestions(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
     };
 
-    
-    const deleteHandler=async(id)=>{
-        await Questionservices.deleteDoc(id);
-        getQuestions();
-    }
 console.log(Questions)
 const handleOnChange = (e,que)=> {
     // e.target.name
@@ -56,7 +51,7 @@ const handleOnChange = (e,que)=> {
     });
     setscore(score);
   
-    console.log(score);
+    // console.log(score);
 }
 const [state, setState] = useState('start')
 
@@ -74,21 +69,12 @@ const [state, setState] = useState('start')
                         <br/><input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.optc}/><label>{ques.optc}</label>
                         <br/><input name={ques.id} onChange={(e) => handleOnChange(e,ques)} type="radio" value={ques.optd}/><label>{ques.optd}</label>
                         <br/><br/>
-                        {/* <div>  </div>
-                        <div>{ques.optb}</div>
-                        <div>{ques.optc}</div>
-                        <div>{ques.optd}</div> */}
                     </div>
                 )
                 
             })
        }
-        {state === 'start' && (
-        <Button_Component score={score} addTrip={() => setState('add-trip') } />
-      )}
-
-      {state === 'add-trip' && <Display_Score score={score}/>}
-
+       <Button onClick={handleSubmit}>Submit</Button>
     </div>
  
     </>
